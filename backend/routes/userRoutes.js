@@ -7,11 +7,12 @@ const {test,subscriptionUser} = require('../controllers/userControllers')
 expressRouter.use(
     cors({
         credentials : true,
-        origin: 'http://localhost:3000'
+        origin: 'http://localhost:3000',
     })
 )
 
-expressRouter.get('/test', test)
+expressRouter.get('/login', test)
 expressRouter.post('/register', subscriptionUser)
 
 module.exports = expressRouter;
+//ok files

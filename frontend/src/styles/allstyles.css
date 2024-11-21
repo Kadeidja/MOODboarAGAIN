@@ -38,6 +38,7 @@ p, span, input, button{
     height: 100%;
     max-height: 10vh;
     justify-content: space-evenly;
+    box-sizing: border-box;
   }
   .navbarelemclass{
     display: flex;
@@ -49,6 +50,12 @@ p, span, input, button{
   #navSearchBarDivId{
     width: 30%;
   }
+
+nav img.logoCentralImg{
+  width: inherit;
+  max-width: 30%;
+}
+
 
 /*THE BOARD*/
 /*BOXES*/

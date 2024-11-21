@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const userModelSchema = new Schema({
     userName: { Type: String},
-    userEmail: { Type: String},
+    userEmail: { Type: String,
+      unique: true
+    },
     userPswd: { Type: String}
   });
     // Export function to create "userModel" model class in the database

@@ -1,7 +1,9 @@
 const UserModeling = require('../models/userModel')
+const {hashPswd, comparePswd} = require('../utilities/authentification')
 
 const test = (req,res) => {
-    res.json('Test is working...')
+        res.json('Test is working...')
+
 }
 
 const subscriptionUser = async(req,res) => {
@@ -20,26 +22,34 @@ try {
             error:'Password is required and should have more than six characters'
         })
     };
+    //Si c'est ok on hash le mot de passe
+    const hashingPswd = await hashPswd(password)
+
+
+
+
+
     //On regarde si le mail est déja existant dans la base de donnée
     const existingMail = await UserModeling.findOne({email});
     //Si le mail est déja présent
     if (existingMail) {
         return res.json({
             error:'Email already taken'
-        })
-    };
+        });
+    }
 
 //Si toutes les informations présenté semble correcte alors on crée l'utilisateur
 const creatingUser = await UserModeling.create({
-    name, email, password
-})
+    name,
+    email,
+    password : hashingPswd,
+});
 
 return res.json(creatingUser)
-
 } catch (error) {
     console.log(error);   
 }
-}
+};
 
 module.exports = {
     test,

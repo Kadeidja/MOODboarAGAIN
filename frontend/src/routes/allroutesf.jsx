@@ -26,7 +26,7 @@ export const allroutersfront = createBrowserRouter([
           path: '/register',
           element: <SignInComp />  },
           {
-            path: '/test',
+            path: '/login',
             element: <LogInComp />  },
 
 

@@ -9,27 +9,20 @@ import { TheReButtonLink,TheReButtonSubmit } from './reusableComponent';
 
 
 export default function SignInComp(){
-    const navigation = useNavigate();
+    const navigation = useNavigate()
 
-const [dataSubscription,setDataSubscription] = useState(
-    {
+const [dataSubscription,setDataSubscription] = useState({
     name: '',
     email:'',
     password: '',
 })
-const subscriptionUser = async (e) =>{
-    e.preventDefault()
+const subscriptionUser = async (e) => {
+    e.preventDefault();
     const {name, email, password} = dataSubscription
     try {
-        const {dataSubscription} = await axios.post('/register', {name,email,password}
-            /*{
-                method : "POST",
-                headers : {
-                    "Content-Type":"application/json"
-                },
-                body:JSON.stringify(
-            {name,email,password})
-        }*/)
+        const {dataSubscription} = await axios.post('/register', {
+            name, email, password
+        })
 
         if(dataSubscription.error){
             toast.error(dataSubscription.error)
